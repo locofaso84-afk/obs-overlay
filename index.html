@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vimos Luz y Entramos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+
+<style>
+html,body{
+    margin:0;
+    padding:0;
+    background:transparent;
+    overflow:hidden;
+    font-family:'Inter',sans-serif;
+}
+
+.barra{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:52px;
+    background:#000;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    box-sizing:border-box;
+    font-size:22px;
+}
+
+.programa{
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.info{
+    font-weight:500;
+}
+</style>
+</head>
+
+<body>
+
+<div class="barra">
+    <div class="programa">VIMOS LUZ Y ENTRAMOS</div>
+    <div class="info">
+        <span id="hora">00:00</span> · Córdoba · <span id="temp">--°C</span>
+    </div>
+</div>
+
+<script>
+
+function actualizarHora(){
+    const ahora=new Date();
+    document.getElementById("hora").innerHTML=
+    ahora.toLocaleTimeString("es-AR",{
+        hour:"2-digit",
+        minute:"2-digit"
+    });
+}
+
+actualizarHora();
+setInterval(actualizarHora,1000);
+
+async function clima(){
+try{
+const r=await fetch("https://wttr.in/Cordoba?format=%t");
+const t=await r.text();
+document.getElementById("temp").innerHTML=t;
+}catch(e){}
+}
+
+clima();
+setInterval(clima,600000);
+
+</script>
+
+</body>
+</html>
