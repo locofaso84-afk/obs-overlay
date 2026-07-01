@@ -1,0 +1,6 @@
+function actualizarHora() {    const ahora = new Date();
+    document.getElementById("hora").textContent =        ahora.toLocaleTimeString("es-AR", {            hour: "2-digit",            minute: "2-digit"        });}
+actualizarHora();setInterval(actualizarHora, 1000);
+async function actualizarTemperatura() {    try {        const respuesta = await fetch("https://wttr.in/Cordoba?format=%t");        const temperatura = await respuesta.text();
+        document.getElementById("temp").textContent = temperatura;    } catch (e) {        document.getElementById("temp").textContent = "--°";    }}
+actualizarTemperatura();setInterval(actualizarTemperatura, 600000);
