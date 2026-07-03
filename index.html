@@ -1,22 +1,48 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vimos Luz y Entramos</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 <div id="overlay">
-    <div id="live">        EN VIVO    </div>
+    <!-- LOGO ESQUINA -->    <img id="logoSuperior" src="logo.png">
+    <!-- CHAT -->    <div id="chat">
+        <div id="chatHeader">
+            <span class="liveDot"></span>
+            CHAT EN DIRECTO
+        </div>
+        <div id="mensajes">
+            <div class="msg">                <span class="nombre">Juan:</span>                Tremendo programa             </div>
+            <div class="msg">                <span class="nombre">María:</span>                Saludos Córdoba            </div>
+            <div class="msg">                <span class="nombre">Pedro:</span>                Los estamos viendo            </div>
+        </div>
+    </div>
+    <!-- BARRA -->
     <div id="barra">
-        <div id="logo">            <img src="logo.png">        </div>
-        <div id="ticker">            <div id="texto">                HUMOR • ACTUALIDAD • ENTREVISTAS • SUSCRIBITE AL CANAL • SEGUINOS EN INSTAGRAM @VIMOSLUZYENTRAMOS •            </div>        </div>
-        <div id="info">
-            <span id="hora">00:00</span>
-            <span>|</span>
+        <div id="logoBanner">
+            <img src="logo.png">
+        </div>
+        <div id="programa">
+            VIMOS LUZ Y ENTRAMOS
+        </div>
+        <div id="ticker">
+            <marquee behavior="scroll" direction="left">
+                Humor • Actualidad • Entrevistas • Seguinos en Instagram • Suscribite al canal • Participá del chat en vivo
+            </marquee>
+        </div>
+        <div id="datos">
+            <span id="hora">20:00</span>
+            <span class="separador"></span>
             <span>Córdoba</span>
-            <span>|</span>
+            <span class="separador"></span>
             <span id="temp">20°C</span>
+        </div>
+        <div id="envivo">
+            EN VIVO
         </div>
     </div>
 </div>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
