@@ -1,89 +1,239 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
 html,body{
-    margin:0;
-    padding:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    font-family:'Inter',sans-serif;
-    background:transparent;
+
+width:100%;
+height:100%;
+overflow:hidden;
+background:transparent;
+
 }
 
 #overlay{
-    position:relative;
-    width:100%;
-    height:100%;
+
+width:100%;
+height:100%;
+position:relative;
+
 }
 
-#live{
-    position:absolute;
-    right:15px;
-    bottom:18px;
-    background:linear-gradient(180deg,#ff2d2d,#b30000);
-    color:#fff;
-    padding:10px 24px;
-    border-radius:10px;
-    font-weight:900;
-    font-size:20px;
-    border:2px solid #ff4d4d;
-    z-index:100;
-    box-shadow:0 0 15px rgba(255,0,0,.5);
+/* LOGO SUPERIOR */
+
+#logoSuperior{
+
+position:absolute;
+top:20px;
+right:20px;
+width:160px;
+z-index:100;
+
 }
+
+/* CHAT */
+
+#chat{
+
+position:absolute;
+top:20px;
+right:20px;
+width:360px;
+height:720px;
+background:rgba(0,0,0,.82);
+border:2px solid #ffc400;
+border-radius:12px;
+overflow:hidden;
+
+}
+
+#chatHeader{
+
+height:55px;
+background:#111;
+border-bottom:2px solid #ffc400;
+display:flex;
+align-items:center;
+padding-left:18px;
+color:white;
+font-weight:800;
+font-size:20px;
+
+}
+
+.liveDot{
+
+width:12px;
+height:12px;
+background:red;
+border-radius:50%;
+margin-right:10px;
+
+}
+
+#mensajes{
+
+padding:18px;
+
+}
+
+.msg{
+
+color:white;
+font-size:20px;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.nombre{
+
+color:#ffc400;
+font-weight:700;
+
+}
+
+/* BANNER */
 
 #barra{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    height:80px;
-    background:#0b0b0b;
-    border-top:4px solid #ffc400;
-    display:flex;
-    align-items:center;
+
+position:absolute;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:105px;
+
+background:#090909;
+
+border-top:4px solid #ffc400;
+
+display:flex;
+
+align-items:center;
+
 }
 
-#logo{
-    width:260px;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-right:3px solid #d81e1e;
+/* LOGO */
+
+#logoBanner{
+
+width:300px;
+
+height:100%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#111;
+
+border-right:4px solid #d81e1e;
+
 }
 
-#logo img{
-    max-height:65px;
-    max-width:220px;
+#logoBanner img{
+
+max-height:85px;
+
 }
+
+/* TITULO */
+
+#programa{
+
+width:360px;
+
+color:white;
+
+font-size:38px;
+
+font-weight:900;
+
+padding-left:30px;
+
+}
+
+/* TICKER */
 
 #ticker{
-    flex:1;
-    overflow:hidden;
-    white-space:nowrap;
-    color:white;
-    font-size:22px;
-    font-weight:600;
-    padding:0 20px;
+
+flex:1;
+
+color:white;
+
+font-size:24px;
+
+font-weight:600;
+
 }
 
-#texto{
-    display:inline-block;
-    padding-left:100%;
-    animation:ticker 20s linear infinite;
+/* INFO */
+
+#datos{
+
+width:470px;
+
+display:flex;
+
+justify-content:space-evenly;
+
+align-items:center;
+
+font-size:26px;
+
+font-weight:700;
+
+color:white;
+
+border-left:4px solid #ffc400;
+
+padding-right:180px;
+
 }
 
-@keyframes ticker{
-    from{transform:translateX(0);}
-    to{transform:translateX(-100%);}
+.separador{
+
+width:3px;
+
+height:36px;
+
+background:#ffc400;
+
 }
 
-#info{
-    width:420px;
-    color:white;
-    display:flex;
-    justify-content:space-evenly;
-    align-items:center;
-    font-size:22px;
-    font-weight:700;
-    border-left:3px solid #ffc400;
-    padding-right:140px;
+/* EN VIVO */
+
+#envivo{
+
+position:absolute;
+
+right:18px;
+
+bottom:18px;
+
+background:linear-gradient(#ff2b2b,#b30000);
+
+padding:14px 28px;
+
+color:white;
+
+font-size:24px;
+
+font-weight:900;
+
+border-radius:10px;
+
+border:2px solid #ff6666;
+
+box-shadow:0 0 18px rgba(255,0,0,.5);
+
 }
