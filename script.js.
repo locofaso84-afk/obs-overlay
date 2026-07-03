@@ -1,6 +1,37 @@
+
+// =======================// RELOJ// =======================
 function actualizarHora() {    const ahora = new Date();
-    document.getElementById("hora").textContent =        ahora.toLocaleTimeString("es-AR", {            hour: "2-digit",            minute: "2-digit"        });}
+    const hora = ahora.getHours().toString().padStart(2, "0");    const minutos = ahora.getMinutes().toString().padStart(2, "0");
+    document.getElementById("hora").textContent = `${hora}:${minutos}`;}
 actualizarHora();setInterval(actualizarHora, 1000);
-async function actualizarTemperatura() {    try {        const respuesta = await fetch("https://wttr.in/Cordoba?format=%t");        const temperatura = await respuesta.text();
-        document.getElementById("temp").textContent = temperatura;    } catch (e) {        document.getElementById("temp").textContent = "--°";    }}
-actualizarTemperatura();setInterval(actualizarTemperatura, 600000);
+// =======================// TEMPERATURA// =======================
+async function actualizarTemperatura() {
+    try{
+        const respuesta = await fetch("https://wttr.in/Cordoba?format=%t");
+        const temperatura = await respuesta.text();
+        document.getElementById("temp").textContent = temperatura;
+    }catch{
+        document.getElementById("temp").textContent="--°";
+    }
+}
+actualizarTemperatura();
+setInterval(actualizarTemperatura,600000);
+// =======================// CHAT DEMO// =======================
+const mensajes = [
+" Bienvenidos a Vimos Luz y Entramos",
+" Saludos desde Córdoba",
+" Muy buen programa",
+" Aguante el streaming",
+" Excelente invitado",
+" Ya me suscribí"
+];
+setInterval(()=>{
+const lista=document.getElementById("mensajes");
+const nuevo=document.createElement("div");
+nuevo.className="msg";
+nuevo.innerHTML="<span class='nombre'>Chat:</span> "+mensajes[Math.floor(Math.random()*mensajes.length)];
+lista.prepend(nuevo);
+while(lista.children.length>8){
+lista.removeChild(lista.lastChild);
+}
+},6000);
