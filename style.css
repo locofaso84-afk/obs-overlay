@@ -16,15 +16,17 @@ html,body{
 
 #live{
     position:absolute;
-    right:20px;
-    bottom:95px;
-    background:#c40000;
+    right:15px;
+    bottom:18px;
+    background:linear-gradient(180deg,#ff2d2d,#b30000);
     color:#fff;
-    padding:8px 16px;
-    border-radius:6px;
-    font-weight:700;
-    font-size:18px;
-    z-index:20;
+    padding:10px 24px;
+    border-radius:10px;
+    font-weight:900;
+    font-size:20px;
+    border:2px solid #ff4d4d;
+    z-index:100;
+    box-shadow:0 0 15px rgba(255,0,0,.5);
 }
 
 #barra{
