@@ -1,37 +1,39 @@
-
-// =======================// RELOJ// =======================
-function actualizarHora() {    const ahora = new Date();
-    const hora = ahora.getHours().toString().padStart(2, "0");    const minutos = ahora.getMinutes().toString().padStart(2, "0");
-    document.getElementById("hora").textContent = `${hora}:${minutos}`;}
-actualizarHora();setInterval(actualizarHora, 1000);
-// =======================// TEMPERATURA// =======================
-async function actualizarTemperatura() {
-    try{
-        const respuesta = await fetch("https://wttr.in/Cordoba?format=%t");
-        const temperatura = await respuesta.text();
-        document.getElementById("temp").textContent = temperatura;
-    }catch{
-        document.getElementById("temp").textContent="--°";
-    }
+// =========================// RELOJ// =========================
+function actualizarHora() {
+    const ahora = new Date();
+    const hora = ahora.getHours().toString().padStart(2,"0");    const minuto = ahora.getMinutes().toString().padStart(2,"0");
+    document.getElementById("hora").innerHTML = hora + ":" + minuto;
 }
-actualizarTemperatura();
-setInterval(actualizarTemperatura,600000);
-// =======================// CHAT DEMO// =======================
-const mensajes = [
-" Bienvenidos a Vimos Luz y Entramos",
-" Saludos desde Córdoba",
-" Muy buen programa",
-" Aguante el streaming",
-" Excelente invitado",
-" Ya me suscribí"
+actualizarHora();
+setInterval(actualizarHora,1000);
+
+// =========================// TEMPERATURA// =========================
+// Temporal hasta conectar una API estable
+document.getElementById("temp").innerHTML="--°";
+
+// =========================// CHAT DEMO// =========================
+const mensajes=[
+["Juan","Qué buen programa "],
+["María","Saludos desde Córdoba"],
+["Pedro","Excelente entrevista"],
+["Lucas","Aguante Vimos Luz y Entramos"],
+["Ana","Los miro todas las semanas"],
+["Sofi","Muy buena la producción"]
 ];
-setInterval(()=>{
+function agregarMensaje(){
 const lista=document.getElementById("mensajes");
-const nuevo=document.createElement("div");
-nuevo.className="msg";
-nuevo.innerHTML="<span class='nombre'>Chat:</span> "+mensajes[Math.floor(Math.random()*mensajes.length)];
-lista.prepend(nuevo);
-while(lista.children.length>8){
+const random=mensajes[Math.floor(Math.random()*mensajes.length)];
+const div=document.createElement("div");
+div.style.marginBottom="14px";
+div.innerHTML="<span style='color:#FFC400;font-weight:700;'>"+random[0]+"</span><br>"+random[1];
+lista.prepend(div);
+while(lista.children.length>10){
 lista.removeChild(lista.lastChild);
 }
-},6000);
+}
+for(let i=0;i<5;i++){
+agregarMensaje();
+}
+setInterval(agregarMensaje,6000);
+
+
